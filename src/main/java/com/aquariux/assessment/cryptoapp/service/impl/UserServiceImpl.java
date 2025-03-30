@@ -19,16 +19,16 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
-    private final UserMapper userMapper;
     private final TransactionRepository transactionRepository;
     private final TransactionMapper transactionMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, TransactionRepository transactionRepository, TransactionMapper transactionMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
+    public UserServiceImpl(TransactionRepository transactionRepository, TransactionMapper transactionMapper, UserRepository userRepository, UserMapper userMapper) {
         this.transactionRepository = transactionRepository;
         this.transactionMapper = transactionMapper;
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
     }
 
     @Override

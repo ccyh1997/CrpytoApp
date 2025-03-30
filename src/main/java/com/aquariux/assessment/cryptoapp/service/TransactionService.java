@@ -1,5 +1,7 @@
 package com.aquariux.assessment.cryptoapp.service;
 
-public interface TransactionService {
+import com.aquariux.assessment.cryptoapp.dto.TransactionDto;
 
+public interface TransactionService {
+    TransactionDto createTrade(TransactionDto transactionDto);
 }

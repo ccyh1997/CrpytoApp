@@ -17,6 +17,12 @@ public interface TransactionMapper {
     @Mapping(target = "unitPrice", source = "unitPrice", qualifiedByName = "trimDecimals")
     TransactionDto convertToDto(Transaction transaction);
 
+    @Mapping(target = "transactionType", source = "transactionType", qualifiedByName = "capitalize")
+    @Mapping(target = "cryptoTicker", source = "cryptoTicker", qualifiedByName = "toUpperCase")
+    @Mapping(target = "units", source = "units", qualifiedByName = "trimDecimals")
+    @Mapping(target = "unitPrice", source = "unitPrice", qualifiedByName = "trimDecimals")
+    Transaction convertToEntity(TransactionDto transactionDto);
+
     @Named("toUpperCase")
     default String toUpperCase(String value) {
         return value != null ? value.toUpperCase() : null;
