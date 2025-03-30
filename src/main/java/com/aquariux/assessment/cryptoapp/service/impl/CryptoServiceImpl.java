@@ -5,7 +5,9 @@ import com.aquariux.assessment.cryptoapp.mapper.CryptoMapper;
 import com.aquariux.assessment.cryptoapp.model.Crypto;
 import com.aquariux.assessment.cryptoapp.repository.CryptoRepository;
 import com.aquariux.assessment.cryptoapp.service.CryptoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class CryptoServiceImpl implements CryptoService {
@@ -19,7 +21,11 @@ public class CryptoServiceImpl implements CryptoService {
 
     @Override
     public CryptoDto getLatestBestAggregatedPrice(String cryptoTicker) {
-        Crypto crypto = cryptoRepository.getLatestBestAggregatedPrice(cryptoTicker);
-        return cryptoMapper.convertToDto(crypto);
+        try {
+            Crypto crypto = cryptoRepository.getLatestBestAggregatedPrice(cryptoTicker);
+            return cryptoMapper.convertToDto(crypto);
+        } catch (Exception ex) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);
+        }
     }
 }
