@@ -10,5 +10,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CryptoDto {
+    private Long stockId;
 
+    private String cryptoName;
+
+    private String cryptoTicker;
+
+    private String lastPrice;
+
+    private String askPrice;
 }

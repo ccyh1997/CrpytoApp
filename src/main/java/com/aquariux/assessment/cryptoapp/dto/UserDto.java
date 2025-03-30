@@ -10,5 +10,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
+    private String username;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String walletBalance;
 }

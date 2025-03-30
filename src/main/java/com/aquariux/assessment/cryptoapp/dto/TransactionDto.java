@@ -10,5 +10,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransactionDto {
+    private String username;
 
+    private String transactionDate;
+
+    private String transactionType;
+
+    private String cryptoTicker;
+
+    private String units;
+
+    private String unitPrice;
 }
