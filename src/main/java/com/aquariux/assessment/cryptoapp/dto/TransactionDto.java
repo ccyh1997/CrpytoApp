@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,7 +20,7 @@ public class TransactionDto {
 
     private String cryptoTicker;
 
-    private String units;
+    private BigDecimal units;
 
-    private String unitPrice;
+    private BigDecimal unitPrice;
 }

@@ -1,7 +1,7 @@
 package com.aquariux.assessment.cryptoapp.service;
 
+import com.aquariux.assessment.cryptoapp.dto.CryptoDto;
+
 public interface CryptoService {
-    // price aggregation
-    // retrieve best aggregated price (bid / sell)
-    // retrieve best ask price (ask / buy)
+    CryptoDto getLatestBestAggregatedPrice(String cryptoTicker);
 }

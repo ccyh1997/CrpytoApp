@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Transactions, Cryptos, Users;
+DROP TABLE IF EXISTS Transactions, Cryptos, Users, Crypto, Transaction;
 
 CREATE TABLE Cryptos (
     crypto_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,8 +10,8 @@ CREATE TABLE Cryptos (
 
 INSERT INTO Cryptos (crypto_name, crypto_ticker, bid_price, ask_price)
 VALUES
-    ('Ethereum', 'ETH', 0, 0),
-    ('Bitcoin', 'BTC', 0, 0);
+    ('Bitcoin', 'BTCUSDT', 0, 0),
+    ('Ethereum', 'ETHUSDT', 0, 0);
 
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
