@@ -44,6 +44,7 @@ public class TransactionServiceImpl implements TransactionService {
                 userRepository.updateWalletBalance(balanceAmount, transactionDto.getUsername());
             }
         }
+
         if (transactionDto.getTransactionType().equalsIgnoreCase("SELL")) {
             BigDecimal units = transactionDto.getUnits();
             BigDecimal unitPrice = transactionDto.getUnitPrice();
@@ -57,6 +58,7 @@ public class TransactionServiceImpl implements TransactionService {
                 userRepository.updateWalletBalance(balanceAmount, transactionDto.getUsername());
             }
         }
+
         Transaction transaction = transactionMapper.convertToEntity(transactionDto);
         Long userId = userRepository.findUserIdByUsername(transactionDto.getUsername());
         transaction.setUserId(userId);
