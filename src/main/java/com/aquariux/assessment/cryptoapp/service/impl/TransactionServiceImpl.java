@@ -46,9 +46,15 @@ public class TransactionServiceImpl implements TransactionService {
         }
         if (transactionDto.getTransactionType().equalsIgnoreCase("SELL")) {
             BigDecimal units = transactionDto.getUnits();
+            BigDecimal unitPrice = transactionDto.getUnitPrice();
+            BigDecimal totalAmount = units.multiply(unitPrice);
             BigDecimal unitsHeld = transactionRepository.getUnitsHeld(transactionDto.getUsername(), transactionDto.getCryptoTicker());
+            BigDecimal walletBalance = userService.getWalletBalance(transactionDto.getUsername()).getWalletBalance();
             if (unitsHeld.compareTo(units) < 0) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Insufficient units to complete transaction.");
+            } else {
+                BigDecimal balanceAmount = walletBalance.add(totalAmount);
+                userRepository.updateWalletBalance(balanceAmount, transactionDto.getUsername());
             }
         }
         Transaction transaction = transactionMapper.convertToEntity(transactionDto);

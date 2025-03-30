@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class CryptoDto {
     private String cryptoName;
 
@@ -19,6 +18,13 @@ public class CryptoDto {
     private BigDecimal bidPrice;
 
     private BigDecimal askPrice;
+
+    public CryptoDto(String cryptoName, String cryptoTicker, BigDecimal bidPrice, BigDecimal askPrice) {
+        this.cryptoName = cryptoName;
+        this.cryptoTicker = cryptoTicker;
+        this.bidPrice = bidPrice;
+        this.askPrice = askPrice;
+    }
 
     public String getCryptoName() {
         return cryptoName;
