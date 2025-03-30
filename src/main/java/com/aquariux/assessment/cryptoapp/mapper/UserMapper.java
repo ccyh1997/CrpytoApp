@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public interface UserMapper {
     @Mapping(target = "firstName", source = "firstName", qualifiedByName = "capitalize")
     @Mapping(target = "lastName", source = "lastName", qualifiedByName = "capitalize")
+    @Mapping(target = "walletBalance", source = "walletBalance", qualifiedByName = "trimDecimals")
     UserDto convertToDto(User user);
 
     @Named("toUpperCase")

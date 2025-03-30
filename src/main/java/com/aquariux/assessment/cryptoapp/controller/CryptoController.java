@@ -18,7 +18,7 @@ public class CryptoController {
     }
 
     @GetMapping("/price")
-    public ResponseEntity<CryptoDto> getStockByTicker(@RequestParam() String cryptoTicker) {
+    public ResponseEntity<CryptoDto> getLatestBestAggregatedPrice(@RequestParam() String cryptoTicker) {
         CryptoDto cryptoDto = cryptoService.getLatestBestAggregatedPrice(cryptoTicker);
         return ResponseEntity.ok(cryptoDto);
     }

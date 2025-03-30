@@ -35,3 +35,10 @@ CREATE TABLE Transactions (
     units DECIMAL(38, 20),
     unit_price DECIMAL(38, 20)
 );
+
+INSERT INTO Transactions (user_id, transaction_date, transaction_type, crypto_id, units, unit_price)
+VALUES
+    (1, NOW(), 'BUY', 1, 2.33, 83116.40),
+    (1, NOW(), 'SELL', 1, 1.33, 83016.40),
+    (2, NOW(), 'BUY', 2, 6.78, 1834.68),
+    (2, NOW(), 'SELL', 2, 5.78, 1824.68);
